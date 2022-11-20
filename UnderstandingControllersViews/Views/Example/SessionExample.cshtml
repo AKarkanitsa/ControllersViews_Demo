@@ -1,0 +1,13 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<h2>
+	Current DateTime & Year:
+	@HttpContextAccessor.HttpContext.Session.GetString("CurrentDateTime") and
+	@HttpContextAccessor.HttpContext.Session.GetInt32("CurrentYear")
+</h2>
+
+@{
+	var p = HttpContextAccessor.HttpContext.Session.Get<Employee>("MyEmployeeClass");
+	<p>
+	<h2>@p.Name, @p.Address</h2>
+	</p>
+}
